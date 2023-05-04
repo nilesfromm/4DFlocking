@@ -208,7 +208,8 @@ export function Flock({ count }) {
 
       let velocityScale = particle.velocity.length() / maxVelocity;
 
-      dummy.scale.set(0.05, 0.05, 0.05 + 10 * velocityScale);
+      let mainScale = 0.025;
+      dummy.scale.set(mainScale, mainScale, mainScale + 10 * velocityScale);
 
       let lookTarget = dummy.position.clone();
       lookTarget.add(particle.velocity);
@@ -226,7 +227,7 @@ export function Flock({ count }) {
       <pointLight ref={light} distance={30} intensity={5} color="#FFCC66"></pointLight>
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <sphereBufferGeometry attach="geometry" args={[0.5, 8, 8]} />
-        <meshStandardMaterial attach="material" wireframe="true" color="blue" />
+        <meshStandardMaterial attach="material" wireframe="true" color="green" />
       </instancedMesh>
     </>
   );
